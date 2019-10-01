@@ -1,2 +1,2 @@
 [artifactory]
-localhost ansible_port=2200 ansible_user=vagrant ansible_ssh_pass=vagrant
+localhost ansible_port=2200 ansible_user=vagrant ansible_ssh_host=localhost

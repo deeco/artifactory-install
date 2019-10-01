@@ -16,7 +16,7 @@
     command: >
        docker-compose down
     args:
-       chdir: ./artifactory/
+       chdir: artifactory/
     when: artifactory_home.stat.exists
 
   - name: Delete artifactory working-dir
@@ -34,7 +34,7 @@
        openssl req -subj '/CN=artifactory-server' -x509 -newkey rsa:4096 -nodes
        -keyout key.pem -out cert.pem -days 999
     args:
-       chdir: ./artifactory/nginx-config/
+       chdir: /vagrant/artifactory/nginx-config/
   - name: docker pull hello world to initialize docker compose 
     command: > 
        docker pull hello-world
@@ -42,4 +42,4 @@
     command: >
        docker-compose -f docker-compose.yml up -d
     args:
-       chdir: ./artifactory/
+       chdir: /vagrant/artifactory/

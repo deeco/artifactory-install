@@ -51,4 +51,10 @@ Vagrant.configure("2") do |config|
             ansible.sudo = true
         end
 
+        config.vm.provision :ansible do |ansible|
+            ansible.playbook = "artifactory.yml"
+            ansible.inventory_path = "hosts"
+            ansible.sudo = true
+        end
+
 end
