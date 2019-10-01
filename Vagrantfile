@@ -41,7 +41,14 @@ Vagrant.configure("2") do |config|
 
         # Add artifactory certificates
         web.vm.provision "shell", inline: "sudo update-ca-certificates"
+       end
 
-    end
+        # Provisioning
+        #
+        config.vm.provision :ansible do |ansible|
+            ansible.playbook = "docker.yml"
+            ansible.inventory_path = "hosts"
+            ansible.sudo = true
+        end
 
 end
